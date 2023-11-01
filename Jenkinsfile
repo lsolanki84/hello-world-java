@@ -14,6 +14,8 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh "docker build -t appimage .;"
+				sh "docker stop apps;"
+				sh "docker rm -f apps;"
 				sh "docker run -d --name apps -p 8282:8080 appimage;" 
             }
         }
