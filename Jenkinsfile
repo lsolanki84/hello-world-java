@@ -10,6 +10,7 @@ pipeline {
 		sh "echo $JAVA_HOME"
   		sh "echo $M2_HOME"
 		sh "echo $MAVEN_HOME"
+		sh "mvn -v"
 		sh "mvn clean" 
             }
         }
