@@ -7,8 +7,9 @@ pipeline {
     stages {
         stage('Build') {
                     steps {
-		                    withMaven { sh "mvn clean" 
-                             }
+			    withMaven(globalMavenSettingsConfig: '', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
+    				sh "mvn clean" 
+			    }
                         }
         }
         stage('Test') { 
