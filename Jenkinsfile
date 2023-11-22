@@ -27,6 +27,8 @@ pipeline {
 				docker stop apps
 					'''
             }
+	}
         }
     }
+}
 }
