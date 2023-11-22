@@ -7,13 +7,6 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh '''
-		export M2_HOME=/usr/share/maven
-		export PATH=$PATH:$M2_HOME/bin
-  		export MAVEN_HOME=/usr/share/maven
-		export PATH=$PATH:$MAVEN_HOME/bin
-		mvn --version
-		'''
 		sh "mvn clean" 
             }
         }
