@@ -1,5 +1,9 @@
 pipeline {
-     agent { label 'jenkins-mvn' }	
+     agent { label 'jenkins-mvn' }
+     tools {
+        maven 'Maven 3.8.7'
+        jdk 'Java 17.0.9'
+    }	
     stages {
         stage('Build') { 
             steps {
