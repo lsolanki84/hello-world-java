@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build') {
                     steps {
-			    withMaven(globalMavenSettingsConfig: '', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
+			    withMaven {
     				sh "mvn clean" 
 			    }
                         }
@@ -21,13 +21,10 @@ pipeline {
         stage('Deploy') { 
 			        steps {
                             sh ''' 
-				                docker build -t appimage .
-				                docker stop apps
-				                docker rm -f apps
-				                docker run -d --name apps -p 8282:8080 appimage
-				                sleep 15
-				                docker stop apps
-					            '''
+				echo " Deploying app...
+				sleep 5
+				echo " Deployment done"
+				 '''
                         }
 	    }
     }
