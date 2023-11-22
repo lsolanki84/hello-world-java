@@ -21,9 +21,9 @@ pipeline {
         stage('Deploy') { 
 			        steps {
                             sh ''' 
-				echo " Deploying app...
+				echo "Deploying app..."
 				sleep 5
-				echo " Deployment done"
+				echo "Deployment done"
 				 '''
                         }
 	    }
