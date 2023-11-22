@@ -1,7 +1,7 @@
 pipeline {
      agent { label 'jenkins-mvn' }
      tools {
-        maven 'DefaultMVN'
+        maven 'testmvn'
         jdk 'DefaultJDK'
     }	
     stages {
