@@ -1,9 +1,6 @@
 pipeline {
      agent { label 'jenkins-mvn' }
-     tools {
-        maven 'testmvn'
-        jdk 'DefaultJDK'
-    }	
+	
     stages {
         stage('Build') {
                     steps {
