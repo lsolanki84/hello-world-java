@@ -7,12 +7,14 @@ pipeline {
     stages {
         stage('Build') {
                     steps {
+			    script {
 			    sh "/usr/bin/aws --version"
 			    sh "/usr/local/bin/cdk --version"
 			    withMaven {
     				sh "mvn clean" 
 			    }
                         }
+		    }
         }
         stage('Test') { 
                     steps {
