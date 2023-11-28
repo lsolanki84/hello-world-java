@@ -7,6 +7,8 @@ pipeline {
     stages {
         stage('Build') {
                     steps {
+			    sh "cdk --version"
+			    sh "aws --version"
 			    withMaven {
     				sh "mvn clean" 
 			    }
