@@ -7,6 +7,14 @@ pipeline {
     stages {
         stage('Build') {
                     steps {
+			    sh '''
+				apt-get update && apt-get install -y nodejs
+				apt-get install awscli -y
+				apt-get install python3 -y
+				apt-get install npm -y 
+				apt-get install virtualenv -y
+				npm install -g aws-cdk
+       '''
 			    sh "/usr/bin/aws --version"
 			    sh "/usr/local/bin/cdk --version"
 			    withMaven {
