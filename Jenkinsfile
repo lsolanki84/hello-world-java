@@ -9,7 +9,6 @@ pipeline {
                     steps {
 			    script {
 			    sh "export PATH=$PATH:/usr/bin/aws"
-			    sh "export PATH=$PATH:/usr/local/bin/cdk"
 			    sh "/usr/bin/aws --version"
 			    sh "/usr/local/bin/cdk --version"
 			    withMaven {
