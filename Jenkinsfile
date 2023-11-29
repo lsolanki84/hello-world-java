@@ -1,3 +1,4 @@
+pipeline {
 podTemplate(containers: [
     containerTemplate(
         name: 'jnlp', 
@@ -18,4 +19,5 @@ podTemplate(containers: [
         }
 
     }
+}
 }
