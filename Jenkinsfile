@@ -1,7 +1,7 @@
 pipeline {
     	agent { label 'jenkins-mvn'}
 	environment {
-        PATH = "$PATH:/usr/bin/aws:/usr/local/bin/cdk"
+        PATH=$PATH:/usr/bin/aws:/usr/local/bin/cdk
     }
 	stages {
         stage('Build') {
