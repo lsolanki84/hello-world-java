@@ -4,11 +4,12 @@ pipeline {
         stage('Build') {
                     steps {
 			    script {
-				sh "env"
-				sh "aws --version"    
-				sh "sleep 3600"    
-			    sh "/usr/bin/aws --version"
-			    sh "/usr/local/bin/cdk --version"
+				sh '''
+				curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+				unzip awscliv2.zip
+				sudo ./aws/install
+				'''
+				sh "aws --version"
                         }
 		    }
         }
