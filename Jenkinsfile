@@ -1,5 +1,5 @@
 pipeline {
-     agent { node { label 'jenkins-mvn'}
+     agent { node { label 'jenkins-mvn'}}
     stages {
         stage('Build') {
                     steps {
@@ -12,4 +12,4 @@ pipeline {
         }
     }
 }
-}
+
