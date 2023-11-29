@@ -1,7 +1,7 @@
 podTemplate(containers: [
     containerTemplate(
         name: 'jnlp', 
-        image: 'lsolanki84/jks-cdk'
+        image: 'ubuntu:latest'
         )
   ]) {
 
