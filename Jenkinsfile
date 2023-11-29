@@ -1,17 +1,21 @@
-pipeline {
-    	agent { label 'jenkins-mvn'}
-	environment {
-		PATH = "/usr/bin/aws:/usr/local/bin/cdk:${env.PATH}"
-    }
-	stages {
-        stage('Build') {
-                    steps {
-			    script {
-				sh "/usr/local/bin/aws --version"
-				sh "sleep 3600"
-                        }
-		    }
+podTemplate(containers: [
+    containerTemplate(
+        name: 'jnlp', 
+        image: 'lsolanki84/jks-cdk'
+        )
+  ]) {
+
+    node(POD_LABEL) {
+        stage('Get a CDK project') {
+            container('jnlp') {
+                stage('Shell Execution') {
+                    sh '''
+		    aws --version
+                    echo "Hello! I am executing shell"
+                    '''
+                }
+            }
         }
+
     }
 }
-
