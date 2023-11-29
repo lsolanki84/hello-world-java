@@ -1,5 +1,6 @@
 pipeline {
-     agent { node { label 'jenkins-mvn'}}
+    /* agent { node { label 'jenkins-mvn'}} */
+       agent { docker { image 'lsolanki84/jks-mvn' } }
     stages {
         stage('Build') {
                     steps {
