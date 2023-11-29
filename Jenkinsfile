@@ -8,7 +8,8 @@ pipeline {
         stage('Build') {
                     steps {
 			    script {
-			    sh "export PATH=$PATH:/usr/bin/aws:/usr/local/bin/cdk"
+				sh "env"    
+			   /* sh "export PATH=$PATH:/usr/bin/aws:/usr/local/bin/cdk" */
 			    sh "aws --version"
 			    sh "cdk --version"
 			    withMaven {
