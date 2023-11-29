@@ -2,6 +2,9 @@ podTemplate(containers: [
     containerTemplate(
         name: 'jnlp', 
         image: 'ubuntu:latest'
+        command: 'sleep', 
+        args: '30d'
+        
         )
   ]) {
 
