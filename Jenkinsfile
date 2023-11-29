@@ -1,7 +1,10 @@
 podTemplate(containers: [
     containerTemplate(
         name: 'maven', 
-        image: 'awscdk/cdk', 
+        image: 'awscdk/cdk',        
+        command: 'sleep', 
+        args: '30d'
+        
         ),
   ]) {
 
