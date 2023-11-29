@@ -1,5 +1,5 @@
 pipeline {
-     agent any
+     agent { node { label 'jenkins-mvn' } }
      tools {
         maven 'testmvn'
 	jdk 'testjdk'
