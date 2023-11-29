@@ -1,5 +1,8 @@
 pipeline {
     	agent { label 'jenkins-mvn'}
+	environment {
+        PATH = "${tool 'AWS-CLI'}:${env.PATH}"
+    }
 	stages {
         stage('Build') {
                     steps {
