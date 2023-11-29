@@ -1,11 +1,11 @@
 pipeline {
-    /* agent { node { label 'jenkins-mvn'}} */
-       agent { docker { image 'lsolanki84/jks-mvn' } }
-    stages {
+    	agent { lable 'jenkins-mvn'}
+	stages {
         stage('Build') {
                     steps {
 			    script {
-				sh "env"    
+				sh "env"
+				sh "sleep 3600"    
 			    sh "/usr/bin/aws --version"
 			    sh "/usr/local/bin/cdk --version"
                         }
