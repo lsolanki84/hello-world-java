@@ -1,5 +1,5 @@
 pipeline {
-     agent jenkins-mvn
+     agent any
      tools {
         maven 'testmvn'
 	jdk 'testjdk'
