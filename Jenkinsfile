@@ -13,7 +13,9 @@ podTemplate(containers: [
             container('maven') {
                 stage('Build a Maven project') {
                     sh '''
-                    echo "maven build"
+                    mvn clean
+                    mvn test
+                    mvn package
                     '''
                 }
             }
