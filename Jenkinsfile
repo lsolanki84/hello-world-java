@@ -1,6 +1,6 @@
 podTemplate(containers: [
     containerTemplate(
-        name: 'maven', 
+        name: 'cdk-agent', 
         image: 'lsolanki84/jkin-cdk',        
         command: 'sleep', 
         args: '30d'
@@ -9,9 +9,9 @@ podTemplate(containers: [
   ]) {
 
     node(POD_LABEL) {
-        stage('Get a Maven project') {
-            container('maven') {
-                stage('Build a Maven project') {
+        stage('Get a CDK project') {
+            container('cdk-agent') {
+                stage('Build a CDK project') {
                     sh '''
                     cdk --version
                     aws --version
