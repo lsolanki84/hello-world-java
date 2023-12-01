@@ -61,6 +61,7 @@ podTemplate(containers: [
                     ls -al | grep venv
 
                     cd .venv/bin
+                    ls -lrth
                     ./activate
 
                     pip install -r requirements.txt
