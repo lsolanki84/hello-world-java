@@ -64,7 +64,7 @@ podTemplate(containers: [
                     cp ../s3code lib/s3-project-stack.tc 
                     cat lib/s3-project-stack.tc
                     cdk bootstrap
-                    cdk deploy --require-approval never
+                    cdk destroy --force
 
                     '''
                 }
