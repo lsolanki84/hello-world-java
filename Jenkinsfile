@@ -57,12 +57,12 @@ podTemplate(containers: [
                     mkdir s3folder
                     cd s3folder
                     cdk init app s3folder --language python
+
+                    python3 -m venv .venv
                     
                     ls -al | grep venv
 
-                    cd .venv/bin
-                    ls -lrth
-                    ./activate
+                    source .venv/bin/activate
 
                     pip install -r requirements.txt
 
