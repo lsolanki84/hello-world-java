@@ -65,7 +65,7 @@ podTemplate(containers: [
                     cat lib/s3-project-stack.tc
                     cdk bootstrap
                     cdk synth
-                    cdk deploy
+                    cdk destroy
 
                     '''
                 }
