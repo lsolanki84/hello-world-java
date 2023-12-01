@@ -41,7 +41,7 @@ podTemplate(containers: [
         }
 
                stage('Build CDK Template') {
-                git url: 'https://github.com/lsolanki84/cdktf-python-aws-s3bucket.git', branch: 'master'
+                git url: 'https://github.com/lsolanki84/testcdk.git', branch: 'master'
             
                     sh '''
                     ls -lrth
@@ -54,19 +54,17 @@ podTemplate(containers: [
                     virtualenv --version
 
                     cdk --version
-                    mkdir s3folder
-                    cd s3folder
-                    cdk init app s3folder --language python
-
-                    python3 -m venv .venv
                     
-                    ls -al | grep venv
+                    npm install -g typescript
+                    
+                    mkdir s3-project
+                    cd s3-project
+                    cdk init app --language typescript
 
-                    source .venv/bin/activate
+                    npm install @aws-cdk/aws-s3
+                    npm update
 
-                    pip install -r requirements.txt
-
-                    cdk bootstrap 
+                    cp ../s3code lib/s3-project-stack.tc 
 
                     cdk synth
 
