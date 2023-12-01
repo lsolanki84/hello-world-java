@@ -55,18 +55,13 @@ podTemplate(containers: [
 
                     cdk --version
                     
-                    npm install -g typescript
-                    
                     mkdir s3-project
                     cd s3-project
                     cdk init app --language typescript
-
-                    npm install @aws-cdk/aws-s3
-                    npm update
                     ls -lrth
 
                     cp ../s3code lib/s3-project-stack.tc 
-
+                    cat lib/s3-project-stack.tc
                     cdk synth
 
                     '''
