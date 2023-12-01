@@ -41,7 +41,7 @@ podTemplate(containers: [
         }
 
                stage('Build CDK Template') {
-                git url: 'https://github.com/lsolanki84/testcdk.git', branch: 'master'
+                git url: 'https://github.com/lsolanki84/testcdk.git', branch: 'main'
             
                     sh '''
                     ls -lrth
@@ -63,6 +63,7 @@ podTemplate(containers: [
 
                     npm install @aws-cdk/aws-s3
                     npm update
+                    ls -lrth
 
                     cp ../s3code lib/s3-project-stack.tc 
 
