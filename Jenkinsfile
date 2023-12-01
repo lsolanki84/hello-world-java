@@ -55,8 +55,6 @@ podTemplate(containers: [
 
                     cdk --version
 
-                    // cdk init app . --language python
-
                     ls -al | grep venv
 
                     source .venv/bin/activate
