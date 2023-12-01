@@ -55,6 +55,17 @@ podTemplate(containers: [
 
                     cdk --version
 
+                    cdk init app --language python
+
+                    ls -al | grep venv
+
+                    source .venv/bin/activate
+
+                    pip install -r requirements.txt
+
+                    cdk bootstrap 
+
+                    cdk synth
 
                     '''
                 }
