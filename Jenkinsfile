@@ -18,7 +18,7 @@ podTemplate(containers: [
                     environment {
                         AWS_ROLE_ARN = 'arn:aws:iam::082008957495:role/awstests3fullaccess'
                     }
-                        sh "echo ${env.AWS_ROLE_ARN}"
+                        sh "echo $AWS_ROLE_ARN"
                     
                     // Use Jenkins credentials for AWS CLI
                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS_CREDENTIALS_ID']]) {
@@ -39,9 +39,9 @@ podTemplate(containers: [
         stage('test Stage') {
                 script {
                     // Use the assumed role credentials in your AWS CLI or other AWS-related commands
-                    sh "aws configure set aws_access_key_id ${env.AWS_ACCESS_KEY_ID}"
-                    sh "aws configure set aws_secret_access_key ${env.AWS_SECRET_ACCESS_KEY}"
-                    sh "aws configure set aws_session_token ${env.AWS_SESSION_TOKEN}"
+                    sh "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID"
+                    sh "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY"
+                    sh "aws configure set aws_session_token $AWS_SESSION_TOKEN"
                     sh "aws s3 ls"
                 }
         }
