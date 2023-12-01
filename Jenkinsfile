@@ -14,12 +14,7 @@ podTemplate(containers: [
 
                 stage('Assume Role') {
                     
-                script {
-                    environment {
-                        AWS_ROLE_ARN = 'arn:aws:iam::082008957495:role/awstests3fullaccess'
-                    }
-                        sh "echo $AWS_ROLE_ARN"
-                    
+                script {                
                     // Use Jenkins credentials for AWS CLI
                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS_CREDENTIALS_ID']]) {
                         // Assume the role
