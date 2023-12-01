@@ -54,7 +54,10 @@ podTemplate(containers: [
                     virtualenv --version
 
                     cdk --version
-
+                    mkdir s3folder
+                    
+                    cdk init app s3folder --language python
+                    
                     ls -al | grep venv
 
                     source .venv/bin/activate
