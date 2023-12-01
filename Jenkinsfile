@@ -20,7 +20,8 @@ podTemplate(containers: [
                     // Use Jenkins credentials for AWS CLI
                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS_CREDENTIALS_ID']]) {
                         // Assume the role
-                        sh "aws sts assume-role --role-arn ${env.AWS_ROLE_ARN} --role-session-name JenkinsSession > assumed-role.json"
+                        sh "echo ${env.AWS_ROLE_ARN}"
+                        sh "aws sts assume-role --role-arn arn:aws:iam::082008957495:role/awstests3fullaccess --role-session-name JenkinsSession > assumed-role.json"
                         
                         // Extract temporary credentials from the response
                         AWS_ACCESS_KEY_ID = sh(script: "jq -r '.Credentials.AccessKeyId' assumed-role.json", returnStdout: true).trim()
