@@ -11,11 +11,11 @@ podTemplate(containers: [
     node(POD_LABEL) {
         stage('Get a CDK project') {
             container('cdk-agent') {
-                environment {
+
+                stage('Assume Role') {
+                    environment {
                         AWS_ROLE_ARN = 'arn:aws:iam::082008957495:role/awstests3fullaccess'
                     }
-                stage('Assume Role') {
-            
                 script {
                     // Use Jenkins credentials for AWS CLI
                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS_CREDENTIALS_ID']]) {
