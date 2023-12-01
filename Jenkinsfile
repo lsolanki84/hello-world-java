@@ -44,7 +44,7 @@ podTemplate(containers: [
                 git url: 'https://github.com/lsolanki84/cdktf-python-aws-s3bucket.git', branch: 'master'
             
                     sh '''
-                    cd cdktf-python-aws-s3bucket
+                    ls -lrth
                     aws sts get-caller-identity
 
                     python --version
