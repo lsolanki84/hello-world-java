@@ -9,7 +9,7 @@ podTemplate(containers: [
   ]) {
 
     node(POD_LABEL) {
-        stage('Get a CDK project') {
+        stage('Project enviroment setup') {
             container('cdk-agent') {
 
                 stage('Assume Role') {
@@ -31,15 +31,35 @@ podTemplate(containers: [
         }
 
         // Your other pipeline stages go here
-        stage('test Stage') {
+        stage('Configure AWS') {
                 script {
                     // Use the assumed role credentials in your AWS CLI or other AWS-related commands
                     sh "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID"
                     sh "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY"
                     sh "aws configure set aws_session_token $AWS_SESSION_TOKEN"
-                    sh "aws s3 ls"
                 }
         }
+
+               stage('Build CDK Template') {
+                git url: 'https://github.com/lsolanki84/cdktf-python-aws-s3bucket.git', branch: 'master'
+            
+                    sh '''
+                    cd cdktf-python-aws-s3bucket
+                    aws sts get-caller-identity
+
+                    python --version
+
+                    npm --version
+
+                    virtualenv --version
+
+                    cdk --version
+
+
+                    '''
+                }
+            
+                 
     }
 }
 }
