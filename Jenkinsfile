@@ -34,10 +34,10 @@ podTemplate(containers: [
         stage('test Stage') {
                 script {
                     // Use the assumed role credentials in your AWS CLI or other AWS-related commands
-                    sh "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID"
-                    sh "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY"
-                    sh "aws configure set aws_session_token $AWS_SESSION_TOKEN"
-                    sh "aws s3 ls"
+                    sh "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID --profile ${env.AWS_PROFILE}"
+                    sh "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile ${env.AWS_PROFILE}"
+                    sh "aws configure set aws_session_token $AWS_SESSION_TOKEN --profile ${env.AWS_PROFILE}"
+                    sh "aws s3 ls --profile ${env.AWS_PROFILE}"
                 }
         }
     }
