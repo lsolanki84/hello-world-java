@@ -47,7 +47,7 @@ podTemplate(containers: [
                     ls -lrth
                     aws sts get-caller-identity
 
-                    python --version
+                    python3 --version
 
                     npm --version
 
