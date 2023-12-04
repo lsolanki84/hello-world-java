@@ -50,7 +50,7 @@ podTemplate(containers: [
                        . .venv/bin/activate
                        pip install -r requirements.txt
                        cat app.py
-                       cat cdk_workshop_stack.py
+                       cat cdk_workshop/cdk_workshop_stack.py
 
                     '''
                 }
