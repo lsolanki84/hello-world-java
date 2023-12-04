@@ -42,29 +42,15 @@ podTemplate(containers: [
         }
 
                stage('Build CDK Template') {
-                git url: 'https://github.com/lsolanki84/testcdk.git', branch: 'main'
+                
             
                     sh '''
-                    ls -lrth
-                    aws sts get-caller-identity
-
-                    python3 --version
-
-                    npm --version
-
-                    virtualenv --version
-
-                    cdk --version
-                    
-                    mkdir s3-project
-                    cd s3-project
-                    cdk init app --language typescript
-                    ls -lrth
-
-                    cp ../s3code lib/s3-project-stack.tc 
-                    cat lib/s3-project-stack.tc
-                    cdk bootstrap
-                    cdk destroy --force
+                       mkdir cdk_workshop && cd cdk_workshop
+                       cdk init sample-app --language python
+                       source .venv/bin/activate
+                       pip install -r requirements.txt
+                       cat app.py
+                       cat cdk_workshop_stack.py
 
                     '''
                 }
