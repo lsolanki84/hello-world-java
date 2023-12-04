@@ -51,7 +51,7 @@ podTemplate(containers: [
                        pip install -r requirements.txt
                        cdk synth
                        cdk bootstrap
-                       cdk deploy --require-approval never
+                       cdk destroy -f
 
                     '''
                 }
