@@ -50,6 +50,8 @@ podTemplate(containers: [
                        . .venv/bin/activate
                        pip install -r requirements.txt
                        cdk synth
+                       cdk bootstrap
+                       cdk deploy --require-approval never
 
                     '''
                 }
