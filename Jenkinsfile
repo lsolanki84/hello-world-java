@@ -49,8 +49,7 @@ podTemplate(containers: [
                        cdk init sample-app --language python
                        . .venv/bin/activate
                        pip install -r requirements.txt
-                       cat app.py
-                       cat cdk_workshop/cdk_workshop_stack.py
+                       cdk synth
 
                     '''
                 }
