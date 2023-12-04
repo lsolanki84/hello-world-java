@@ -47,7 +47,7 @@ podTemplate(containers: [
                     sh '''
                        mkdir cdk_workshop && cd cdk_workshop
                        cdk init sample-app --language python
-                       source .venv/bin/activate
+                       . .venv/bin/activate
                        pip install -r requirements.txt
                        cat app.py
                        cat cdk_workshop_stack.py
